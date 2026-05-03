@@ -1,0 +1,12 @@
+streamlit
+chromadb
+sentence-transformers
+pymupdf
+requests
+anthropic
+python-dotenv
+langchain-text-splitters
+groq
+transformers
+torch
+torchvision
