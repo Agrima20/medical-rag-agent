@@ -1,5 +1,9 @@
 streamlit
-chromadb==0.4.15
+chromadb==0.4.24
+protobuf==3.20.0
+pysqlite3-binary
+opentelemetry-api==1.22.0
+opentelemetry-sdk==1.22.0
 sentence-transformers
 pymupdf
 requests
@@ -9,4 +13,4 @@ groq
 transformers
 torch
 torchvision
-numpy==1.26.4
+numpy
