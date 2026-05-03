@@ -1,12 +1,14 @@
 streamlit
-chromadb
+chromadb==0.4.24
 sentence-transformers
 pymupdf
 requests
-anthropic
 python-dotenv
 langchain-text-splitters
 groq
 transformers
 torch
 torchvision
+protobuf==3.20.3
+opentelemetry-api==1.20.0
+opentelemetry-sdk==1.20.0
