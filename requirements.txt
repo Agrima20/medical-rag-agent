@@ -4,6 +4,7 @@ protobuf==3.20.0
 pysqlite3-binary
 opentelemetry-api==1.22.0
 opentelemetry-sdk==1.22.0
+numpy<2.0.0
 sentence-transformers
 pymupdf
 requests
@@ -13,4 +14,3 @@ groq
 transformers
 torch
 torchvision
-numpy
