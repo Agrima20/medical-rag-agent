@@ -1,4 +1,3 @@
-# ── Imports ────────────────────────────────────────────────────────────────────
 import os
 from groq import Groq
 from dotenv import load_dotenv
@@ -10,10 +9,8 @@ from .vectorstore import add_documents, retrieve
 
 load_dotenv()
 
-# Initialize Groq client
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-# ── High risk keywords ─────────────────────────────────────────────────────────
 # If any of these appear in the query we show an extra safety warning in the UI
 HIGH_RISK_KEYWORDS = [
     "dose", "dosage", "how much", "overdose", "can i take",
@@ -43,7 +40,6 @@ def get_tier_label(source: str) -> str:
         return "Tier 3 — Peer Reviewed Research"
 
 
-# ── System prompt ──────────────────────────────────────────────────────────────
 # This is the most critical part — instructs the LLM to NEVER hallucinate
 # It must only use the context provided, nothing from its own training
 SYSTEM_PROMPT = """You are a medical literature assistant for doctors and researchers.
@@ -88,7 +84,6 @@ def answer_query(user_query: str, search_mode: str = "all") -> dict:
     epmc_papers   = []
     trials        = []
 
-    # ── Mode: Search all sources ───────────────────────────────────────────────
     if search_mode == "all":
 
         # Source 1 — PubMed

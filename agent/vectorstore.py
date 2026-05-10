@@ -1,14 +1,11 @@
 # This file manages the ChromaDB vector database
-# Vector databases store text as mathematical vectors (embeddings)
-# This lets us find semantically similar text — not just keyword matching
-# e.g. "heart attack" will match "myocardial infarction" because they mean the same thing
+# Vector databases store text as mathematical vectors (embeddings). This lets us find semantically similar text
 
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-# Load a free, lightweight embedding model that runs fully locally (no API needed)
-# all-MiniLM-L6-v2 is fast, small, and works well for medical/scientific text
-# It converts text into 384-dimensional vectors
+# Load a free, lightweight embedding model trained on PubMed articles
+# It converts text into 768-dimensional vectors
 EMBED_MODEL = SentenceTransformer("NeuML/pubmedbert-base-embeddings")
 
 # Create a persistent ChromaDB client

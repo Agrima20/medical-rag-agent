@@ -12,7 +12,7 @@ load_dotenv()
 # Base URL for all NCBI E-utilities API calls
 BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 
-# Your free NCBI API key (from .env file) — gives 10 requests/sec instead of 3
+# NCBI API key — gives 10 requests/sec
 KEY = os.getenv("NCBI_API_KEY")
 
 def search_pubmed(query: str, max_results: int = 5) -> list:
@@ -24,7 +24,7 @@ def search_pubmed(query: str, max_results: int = 5) -> list:
         max_results: How many papers to fetch (default 5)
     
     Returns:
-        List of dicts, each containing title, abstract, journal, year, doi
+        List of dicts, each containing title, abstract, journal, year, doi(digital object identifier)
     """
 
     # Step 1 — ESearch: search PubMed and get a list of matching PMIDs
@@ -34,7 +34,7 @@ def search_pubmed(query: str, max_results: int = 5) -> list:
         "term": query,           # the search query
         "retmax": max_results,   # max number of results to return
         "retmode": "json",       # return response as JSON
-        "api_key": KEY           # your free NCBI API key
+        "api_key": KEY           # NCBI API key
     })
 
     # Extract the list of PMIDs from the JSON response
